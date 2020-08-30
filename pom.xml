@@ -18,7 +18,7 @@
         <ReportName>TestReport</ReportName>
     </properties>-->
     <properties>
-        <project.build.sourceEncoding>GBK</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- 测试结果存放路径 -->
         <jmeter.result.jtl.dir>${project.build.directory}\jmeter\results</jmeter.result.jtl.dir>
         <!-- 测试报表存放路径 -->
