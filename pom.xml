@@ -25,6 +25,8 @@
         <jmeter.result.html.dir>${project.build.directory}\jmeter\html</jmeter.result.html.dir>
         <jmeter.result.html.dir1>${project.build.directory}\jmeter\html1</jmeter.result.html.dir1>
 
+        <jmeter.result.html.dirdetail>${project.build.directory}\jmeter\detailhtml</jmeter.result.html.dirdetail>
+
     </properties>
 
     <dependencies>
@@ -37,31 +39,7 @@
     </dependencies>
 
     <build>
-       <!-- <resources>
-            <resource>
-                &lt;!&ndash; 要打包的文件所在的目录 &ndash;&gt;
-                <directory>src/test/jmeter/</directory>
-
-                &lt;!&ndash; includes 和 excludes 都可以独立配置，也可以同时配置 &ndash;&gt;
-
-                &lt;!&ndash; 指定要打包的文件 &ndash;&gt;
-                &lt;!&ndash;
-                <includes>
-                    <include>**/*.*</include>
-                </includes>
-                &ndash;&gt;
-
-                &lt;!&ndash; 或者也可以剔除不需要打包的文件 &ndash;&gt;
-                <excludes>
-                    <exclude>**/*.png</exclude>
-                </excludes>
-
-                &lt;!&ndash; 指定打包到目的文件夹 &ndash;&gt;
-                <targetPath>${jmeter.result.jtl.dir}</targetPath>
-            </resource>
-        </resources>-->
         <plugins>
-
             <plugin>
                 <groupId>com.lazerycode.jmeter</groupId>
                 <artifactId>jmeter-maven-plugin</artifactId>
@@ -128,6 +106,17 @@
                     <transformationSets>
                         <transformationSet>
                             <dir>${jmeter.result.jtl.dir}</dir>
+                            <stylesheet>src\test\resources\jmeter-results-detail-tree-view-report.xsl</stylesheet>
+                            <outputDir>${jmeter.result.html.dirdetail}</outputDir>
+                            <fileMappers>
+                                <fileMapper
+                                        implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+                                    <targetExtension>html</targetExtension>
+                                </fileMapper>
+                            </fileMappers>
+                        </transformationSet>
+                        <transformationSet>
+                            <dir>${jmeter.result.jtl.dir}</dir>
                             <stylesheet>src\test\resources\jmeter-results-detail-report_21.xsl</stylesheet>
                             <outputDir>${jmeter.result.html.dir}</outputDir>
                             <fileMappers>
@@ -159,6 +148,13 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>-Xmx1024m</argLine>
+                </configuration>
+            </plugin>-->
         </plugins>
     </build>
 </project>
