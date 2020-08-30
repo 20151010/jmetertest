@@ -1,7 +1,0 @@
-POST https://mtest-api.picclife.cn/ucsp-web/api/user/login-bind
-
-POST data:
-{"use_type":"userlogin","user_name":"18518251268","phone_code":"730438","login_device":"SEA-AL10 HUAWEI","login_time":"2020-08-19   23:50:10"}
-
-
-{"msg":"短信验证码不正确或已过期","ret":"PICC-PLATFORM-011","traceId":"19yfyy3un5"}
