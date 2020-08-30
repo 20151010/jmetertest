@@ -82,7 +82,7 @@
 
                     <!--指定日志级别-->
                     <overrideRootLogLevel>debug</overrideRootLogLevel>
-                    <resultsFileNameDateFormat>yyyy-MMMM-dd-HH-mm-ss</resultsFileNameDateFormat>
+                    <resultsFileNameDateFormat>yyyyMMdd</resultsFileNameDateFormat>
                     <!--这里是否生成result report需要设置为false，否则运行时会出现“前言中不允许有内容”的报错。
                                         因为若该项为true，无论你在.properties配置文件或者此pom文件中将结果文件的格式显示设置为xml，最后都只会生成csv的结果文件。
                                         而csv的格式无法转换成我们最后要的html结果文件，就会报上述的错。-->
